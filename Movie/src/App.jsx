@@ -21,17 +21,25 @@ const ShowList = ({ shows }) => {
   };
 
   return (
-    <div className=' w-3/4 m-auto mt-11 '>
+    <div className=' w-3/4 m-auto mt-11 font-serif'>
       <Slider {...carouselSettings}>
         {shows.map((show) => (
           <div key={show.show.id} className="px-4">
             <h1 className='font-bold mt-6'>{show.show.name}</h1>
             {show.show.image && <img height={300} width={300} src={show.show.image.medium} alt={show.show.name} className="w-full" />}
-
-            {/* <p>{show.show.summary}</p> */}
+          <div className='flex '>
+            <p className='mt-5'>{show.show.language}</p>
+            
+            <p  className='mt-5  ml-10'>
+              {show.show.rating.average}
+            </p>
+            
+            <p className='mt-5 ml-10'>{show.show.genres}</p>
+            </div>
             <Link to={`/show/${show.show.id}`}>
-              {/* <button >View Details</button> */}
-              <button type="button" class=" mt-5 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View Details</button>
+
+            <button type="button" class="w-full mt-5 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">View Summary</button>
+
             </Link>
           </div>
         ))}
@@ -86,7 +94,9 @@ const BookTickets = ({ shows }) => {
   }
 
   const [formData, setFormData] = useState({
-    movieName: selectedShow.show.name
+    movieName: selectedShow.show.name,
+    Language: selectedShow.show.language,
+    Genres:selectedShow.show.genres
     // Add other relevant details
   });
 
@@ -111,6 +121,14 @@ const BookTickets = ({ shows }) => {
         <label className='mt-10 block mb-2 text-sm font-medium text-gray-900'>
           Movie Name:
           <input className=' mt-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' type="text" value={formData.movieName} readOnly />
+        </label>
+        <label className='mt-10 block mb-2 text-sm font-medium text-gray-900'>
+          Language:
+          <input className=' mt-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' type="text" value={formData.Language} readOnly />
+        </label>
+        <label className='mt-10 block mb-2 text-sm font-medium text-gray-900'>
+          Genres:
+          <input className=' mt-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' type="text" value={formData.Genres} readOnly />
         </label>
         {/* Add other form fields for relevant details */}
         {/* <button type="submit">Book Now</button> */}
