@@ -12,11 +12,21 @@ const fetchShows = async () => {
 };
 
 const ShowList = ({ shows }) => {
+  const getSlidesToShow = () => {
+    const screenWidth = window.innerWidth;
+    if(screenWidth > 789 ){
+      return 3;
+    } else {
+      return 1;
+    }
+
+    }
+  
   const carouselSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: getSlidesToShow(),
     slidesToScroll: 1,
   };
 
@@ -60,7 +70,7 @@ const ShowDetails = ({ shows }) => {
 
   return (
 
-    <div class=" m-auto max-w-md  font-serif border border-black rounded-lg shadow">
+    <div class="lg:m-auto max-w-md sm:w-full sm:h-screen  font-serif border border-black rounded-lg shadow">
       <img  src={selectedShow.show.image.medium} alt={selectedShow.show.name} className="w-full h-96 rounded-t-lg" />
 
       <div class="p-5 ">
