@@ -1,5 +1,6 @@
-[ bookYourShows- mini website to show case below features:]
-It is created using react, react-dom ,react-router and tailwind CSS for styling
+## bookYourShows-
+### mini website to show case below features:
+### It is created using react, react-dom ,react-router and tailwind CSS for styling
 ### It's a 3 screen react application 
 ## Screen:1
 ### Display name , rating and language of show taken from API.
