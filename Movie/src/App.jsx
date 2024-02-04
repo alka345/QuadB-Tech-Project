@@ -6,7 +6,7 @@ import BookTickets from './pages/BookTickets'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import ShowItem from './components/ShowItem';
-import Explore from './pages/Explore';
+import CategoryPage from './pages/CategoryPage';
 
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<ShowList shows={shows} />} />
         <Route path="/show/:id" element={<ShowDetails shows={shows} />} />
-        <Route path="/show/explore" element={<Explore shows={shows} />} />
+        <Route path="/show/category" element={<CategoryPage shows={shows} />} />
         <Route path="/book/:id" element={<BookTickets shows={shows} />} />
       </Routes>
     </Router>

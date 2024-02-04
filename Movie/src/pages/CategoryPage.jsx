@@ -7,7 +7,7 @@ const apiUrl = 'https://api.tvmaze.com/search/shows?q=all';
 
 
 
-const Explore= () => {
+const CategoryPage= () => {
   const [shows, setShows] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [sortBy, setSortBy] = useState('name');
@@ -108,4 +108,4 @@ const Explore= () => {
   );
 };
 
-export default Explore;
+export default CategoryPage;
